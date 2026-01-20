@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Mini RAG</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="page">
+    <div class="page-header">
+      <h1>Mini RAG System</h1>
+      <p class="tagline"> Finds the most relevant information first, then answers </p>
+    </div>
+    <div class="container">
+      <h2>Add Sentences</h2> <textarea id="sentences" placeholder="Enter one sentence per line"></textarea> <button
+        onclick="addSentences()">Add</button>
+      <hr>
+      <h2>Ask a Question</h2> <input id="question" placeholder="Type your question" /> <button
+        onclick="sendQuestion()">Search</button>
+      <pre id="output"></pre>
+    </div>
+    <script>
+      async function addSentences() {
+        const text = document.getElementById("sentences").value;
+
+        const response = await fetch("http://127.0.0.1:8000/add_text", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ text })
+        });
+
+        const data = await response.json();
+        document.getElementById("output").innerText =
+          JSON.stringify(data, null, 2);
+      }
+
+      async function sendQuestion() {
+        const question = document.getElementById("question").value;
+
+        const response = await fetch("http://127.0.0.1:8000/search", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ question })
+        });
+
+        const data = await response.json();
+        document.getElementById("output").innerText =
+          JSON.stringify(data, null, 2);
+      }
+    </script>
+</body>
+
+</html>
