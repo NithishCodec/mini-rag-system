@@ -1,4 +1,6 @@
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
 from google import genai
 import os
@@ -9,6 +11,8 @@ from fastapi.middleware.cors import CORSMiddleware
 # App
 # -------------------
 app = FastAPI()
+
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 app.add_middleware(
     CORSMiddleware,
@@ -49,6 +53,13 @@ def chunk_text(text: str):
     # basic sentence-level chunking
     chunks = text.replace("\n", " ").split(".")
     return [c.strip() for c in chunks if c.strip()]
+
+
+
+
+@app.get("/")
+def serve_frontend():
+    return FileResponse("static/index.html")
 
 # -------------------
 # Add sentences endpoint (OLD - kept)
