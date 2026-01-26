@@ -1,5 +1,8 @@
-.env
+# Python
+venv/
 __pycache__/
 *.pyc
-venv/
-node_modules/
+.env
+
+# OS
+.DS_Store
