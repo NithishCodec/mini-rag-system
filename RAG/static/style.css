@@ -1,0 +1,134 @@
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---------- Theme ---------- */
+body {
+  background: #0e0e11;
+  color: #e6e6eb;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* ---------- Container ---------- */
+.container {
+  width: 420px;
+  background: #141418;
+  border: 1px solid #2a2a33;
+  padding: 16px;
+  border-radius: 6px; /* square-ish */
+}
+
+/* ---------- Headings ---------- */
+h2 {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+  color: #bdbdd4;
+}
+
+/* ---------- Inputs ---------- */
+textarea,
+input {
+  width: 100%;
+  background: #0f0f14;
+  color: #e6e6eb;
+  border: 1px solid #2f2f3a;
+  padding: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 4px;
+  outline: none;
+}
+
+/* textarea should show content clearly */
+textarea {
+  min-height: 120px;
+  resize: none;
+  margin-bottom: 10px;
+}
+
+input {
+  margin-bottom: 10px;
+}
+
+textarea:focus,
+input:focus {
+  border-color: #5f5fff;
+}
+
+/* ---------- Buttons ---------- */
+button {
+  width: 100%;
+  background: #1b1b22;
+  color: #ffffff;
+  border: 1px solid #3a3a48;
+  padding: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #242430;
+}
+
+/* ---------- Divider ---------- */
+hr {
+  border: none;
+  border-top: 1px solid #2a2a33;
+  margin: 14px 0;
+}
+
+/* ---------- Output ---------- */
+pre {
+  margin-top: 12px;
+  background: #0f0f14;
+  border: 1px solid #2f2f3a;
+  padding: 10px;
+  font-size: 11px;
+  font-weight: 500;
+  border-radius: 4px;
+  max-height: 160px;
+  overflow-y: auto;
+  color: #cfcfe8;
+}
+
+/* ---------- Page Wrapper ---------- */
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ---------- Top Title ---------- */
+.page-header {
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.page-header h1 {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.page-header .tagline {
+  font-size: 11px;
+  font-weight: 500;
+  color: #9a9ab0;
+}
